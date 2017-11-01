@@ -62,7 +62,15 @@ const Routers = function ({ history, app }) {
       path: '/post',
       models: () => [import('./models/post')],
       component: () => import('./routes/post/'),
-    },
+    }, {
+      path: '/model',
+      models: () => [import('./models/model')],
+      component: () => import('./routes/model/'),
+    }, {
+      path: '/mdl',
+      // models: () => [import('./models/mdltree')],
+      component: () => import('./routes/MdlTree/MdlTree'),
+    }
   ]
 
   return (

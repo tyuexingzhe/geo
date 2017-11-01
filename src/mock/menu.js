@@ -23,6 +23,20 @@ let database = [
     route: '/post',
   },
   {
+    id: '8',
+    bpid: '1',
+    name: 'Model',
+    icon: 'inbox',
+    route: '/model',
+  },
+  {
+    id: '9',
+    bpid: '1',
+    name: 'CreateMdl',
+    icon: 'inbox',
+    route: '/mdl',
+  },
+  {
     id: '21',
     mpid: '-1',
     bpid: '2',
