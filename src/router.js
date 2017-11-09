@@ -25,6 +25,14 @@ const Routers = function ({ history, app }) {
       models: () => [import('./models/user/detail')],
       component: () => import('./routes/user/detail/'),
     }, {
+      path: '/resource',
+      models: () => [import('./models/resource')],
+      component: () => import('./routes/resource/'),
+    }, {
+      path: '/resource/:id',
+      models: () => [import('./models/resource/detail')],
+      component: () => import('./routes/resource/detail/'),
+    }, {
       path: '/login',
       models: () => [import('./models/login')],
       component: () => import('./routes/login/'),
