@@ -11,11 +11,19 @@ export default modelExtend(pageModel, {
     setup ({ dispatch, history }) {
       history.listen((location) => {
         if (location.pathname === '/post') {
-          dispatch({ type: 'query',
+          if(!location.query){
+            dispatch({ type: 'query',
             payload: {
               status: 2,
               ...queryString.parse(location.search),
             } })
+          }else{
+            dispatch({ type: 'query',
+            payload: {
+              status:location.query.status,
+              ...queryString.parse(location.search),
+            } })
+          }
         }
       })
     },
