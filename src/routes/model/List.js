@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import styles from './List.less'
 
 const List = ({ ...tableProps }) => {
-  console.log(tableProps.publish)
   const columns = [
     {
       title: 'Image',

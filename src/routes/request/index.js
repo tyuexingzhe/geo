@@ -15,7 +15,7 @@ import { Iconfont } from 'components'
 import styles from './index.less'
 
 const { api } = config
-const { dashboard, users, userLogin, user, v1test, v2test } = api
+const { dashboard, users, resources, resource, userLogin, user, v1test, v2test } = api
 const TreeNode = Tree.TreeNode
 
 const requestOptions = [
@@ -35,6 +35,17 @@ const requestOptions = [
       password: 'guest',
     },
     desc: 'intercept request by mock.js',
+  },
+  {
+    url: resources,
+    desc: 'intercept request by mock.js',
+  },
+  {
+    url: resource,
+    desc: 'intercept request by mock.js',
+    data: Mock.mock({
+      id: '@id',
+    }),
   },
   {
     url: users,

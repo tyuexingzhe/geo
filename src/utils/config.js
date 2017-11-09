@@ -1,16 +1,16 @@
-const APIV1 = '/api/v1'
-const APIV2 = '/api/v2'
+const APIV1 = '/api'
+const APIV2 = '/api'
 
 module.exports = {
   name: 'OpenGMS',
   prefix: 'antdAdmin',
-  footerText: 'Ant Design Admin  Â© 2017 zuiidea',
+  footerText: 'GeoServer Admin  © 2017 tyf',
   logo: '/logo.png',
   iconFontCSS: '/iconfont.css',
   iconFontJS: '/iconfont.js',
   CORS: [],
   openPages: ['/login'],
-  apiPrefix: '/api/v1',
+  apiPrefix: '/api',
   APIV1,
   APIV2,
   api: {
@@ -18,6 +18,8 @@ module.exports = {
     userLogout: `${APIV1}/user/logout`,
     userInfo: `${APIV1}/userInfo`,
     users: `${APIV1}/users`,
+    resource : `${APIV1}/resource/:id`,
+    resources : `${APIV1}/resources`,
     posts: `${APIV1}/posts`,
     mdl : `${APIV1}/mdl`,
     models: `${APIV1}/models`,

@@ -7,7 +7,6 @@ export default {
 
   state: {
     data: {},
-    cpu: {},
   },
 
   subscriptions: {

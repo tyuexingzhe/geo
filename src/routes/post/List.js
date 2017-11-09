@@ -3,8 +3,8 @@ import { Table, Button } from 'antd'
 import { Link } from 'react-router-dom'
 import styles from './List.less'
 
-const List = ({ ...tableProps }) => {
-  console.log(tableProps.publish)
+const List = ({ ...tableProps },key) => {
+
   const columns = [
     {
       title: 'Image',
@@ -48,6 +48,7 @@ const List = ({ ...tableProps }) => {
       },
     },
   ]
+
 
   return (
     <div>

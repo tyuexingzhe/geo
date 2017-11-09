@@ -57,14 +57,14 @@ const Index = ({ post, dispatch, loading, location }) => {
       },
     }))
   }
-
+  
   return (<div className="content-inner">
     <Tabs activeKey={query.status === String(EnumPostStatus.UNPUBLISH) ? String(EnumPostStatus.UNPUBLISH) : String(EnumPostStatus.PUBLISHED)} onTabClick={handleTabClick}>
       <TabPane tab="Encapsulation" key={String(EnumPostStatus.PUBLISHED)}>
         <List {...listProps} />
       </TabPane>
       <TabPane tab="UnEncapsulation" key={String(EnumPostStatus.UNPUBLISH)}>
-        <List {...unlistProps} />
+        <List {...listProps} />
       </TabPane>
     </Tabs>
   </div>)

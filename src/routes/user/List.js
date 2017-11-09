@@ -35,34 +35,37 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       className: styles.avatar,
       render: text => <img alt={'avatar'} width={24} src={text} />,
     }, {
-      title: 'Owner',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
       render: (text, record) => <Link to={`user/${record.id}`}>{text}</Link>,
     }, {
-      title: 'HardWare',
-      dataIndex: 'hardware',
-      key: 'hardware',
+      title: 'NickName',
+      dataIndex: 'nickName',
+      key: 'nickName',
     }, {
-      title: 'SoftWare',
-      dataIndex: 'software',
-      key: 'software',
-      render: (text, record) => <Link to={`user/${record.id}`}>{text}</Link>,
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
     }, {
-      title: 'Used',
-      dataIndex: 'isUsed',
-      key: 'isUsed',
+      title: 'Gender',
+      dataIndex: 'isMale',
+      key: 'isMale',
       render: text => (<span>{text
-        ? 'Use'
-        : 'unUse'}</span>),
+        ? 'Male'
+        : 'Female'}</span>),
+    }, {
+      title: 'Phone',
+      dataIndex: 'phone',
+      key: 'phone',
     }, {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
     }, {
-      title: 'Location',
-      dataIndex: 'location',
-      key: 'location',
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
     }, {
       title: 'CreateTime',
       dataIndex: 'createTime',

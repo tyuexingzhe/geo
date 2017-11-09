@@ -33,7 +33,7 @@ const modal = ({
         ...getFieldsValue(),
         key: item.key,
       }
-      data.location = data.location.join(' ')
+      data.address = data.address.join(' ')
       onOk(data)
     })
   }
@@ -56,9 +56,19 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Use" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('isUsed', {
-            initialValue: item.isUsed,
+        <FormItem label="NickName" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('nickName', {
+            initialValue: item.nickName,
+            rules: [
+              {
+                required: true,
+              },
+            ],
+          })(<Input />)}
+        </FormItem>
+        <FormItem label="Gender" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('isMale', {
+            initialValue: item.isMale,
             rules: [
               {
                 required: true,
@@ -67,10 +77,21 @@ const modal = ({
             ],
           })(
             <Radio.Group>
-              <Radio value>True</Radio>
-              <Radio value={false}>False</Radio>
+              <Radio value>Male</Radio>
+              <Radio value={false}>Female</Radio>
             </Radio.Group>
           )}
+        </FormItem>
+        <FormItem label="Age" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('age', {
+            initialValue: item.age,
+            rules: [
+              {
+                required: true,
+                type: 'number',
+              },
+            ],
+          })(<InputNumber min={18} max={100} />)}
         </FormItem>
         <FormItem label="Phone" hasFeedback {...formItemLayout}>
           {getFieldDecorator('phone', {
@@ -96,9 +117,9 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Location" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('location', {
-            initialValue: item.location && item.location.split(' '),
+        <FormItem label="Address" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('address', {
+            initialValue: item.address && item.address.split(' '),
             rules: [
               {
                 required: true,
@@ -108,7 +129,7 @@ const modal = ({
             size="large"
             style={{ width: '100%' }}
             options={city}
-            placeholder="Pick an location"
+            placeholder="Pick an address"
           />)}
         </FormItem>
       </Form>
