@@ -37,18 +37,25 @@ let database = [
     route: '/resource/:id',
   },
   {
-    id: '7',
+    id: '3',
     bpid: '1',
     name: 'Encapsulation',
     icon: 'inbox',
     route: '/post',
   },
   {
-    id: '3',
+    id: '4',
     bpid: '1',
     name: 'Request',
     icon: 'api',
     route: '/request',
+  },
+  {
+    id:'5',
+    bpid:'1',
+    name:'Engineering Disciline',
+    icon:'solution',
+    route:'/spec'
   },
   // {
   //   id: '4',
@@ -168,20 +175,20 @@ let database = [
   //   name: 'Test Navigation22',
   //   route: '/navigation/navigation2/navigation2',
   // },
-  {
-    id: '8',
-    bpid: '1',
-    name: 'Model',
-    icon: 'inbox',
-    route: '/model',
-  },
   // {
-  //   id: '9',
+  //   id: '6',
   //   bpid: '1',
-  //   name: 'CreateMdl',
+  //   name: 'Model',
   //   icon: 'inbox',
-  //   route: '/mdl',
+  //   route: '/model',
   // },
+  {
+    id: '7',
+    bpid: '1',
+    name: 'CreateMdl',
+    icon: 'inbox',
+    route: '/mdl',
+  },
 ]
 
 module.exports = {
