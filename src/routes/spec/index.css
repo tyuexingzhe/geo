@@ -1,0 +1,58 @@
+.m-spec-d-r{
+    flex: 1;
+    margin-bottom: 30px;
+    background: #f7f7f7;
+    padding: 20px;
+    display: flex;
+    flex-flow: column;
+    min-height: 500px;
+}
+
+.t-part-head {
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    background: rgba(0,0,0,0.05);
+}
+
+.t-part-content {
+    padding: 20px;
+}
+
+.m-spec-d-r .tool-tag {
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.m-spec-d-r .tool-tag .copy-txt {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 16px 0;
+}
+.t-part-head {
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    background: rgba(0,0,0,0.05);
+}
+
+.t-part-content {
+    padding: 20px;
+}
+
+.m-spec-d-r .tool-tag {
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.m-spec-d-r .tool-tag .copy-txt {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 16px 0;
+}

@@ -78,6 +78,10 @@ const Routers = function ({ history, app }) {
       path: '/mdl',
       // models: () => [import('./models/mdltree')],
       component: () => import('./routes/MdlTree/MdlTree'),
+    },{
+      path: '/spec',
+      // models: () => [import('./models/mdltree')],
+      component: () => import('./routes/spec/'),
     }
   ]
 
