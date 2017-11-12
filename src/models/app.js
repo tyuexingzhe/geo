@@ -91,7 +91,7 @@ export default {
             menu,
           },
         })
-        if (location.pathname === '/login') {
+        if (location.pathname === '/login' || location.pathname === '/') {
           yield put(routerRedux.push({
             pathname: '/dashboard',
           }))
