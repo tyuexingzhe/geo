@@ -1,16 +1,17 @@
-const APIV1 = '/api'
-const APIV2 = '/api'
+const APIV1 = '/api/v1'
+const APIV2 = '/api/v2'
 
 module.exports = {
   name: 'OpenGMS',
   prefix: 'antdAdmin',
   footerText: 'GeoServer Admin  © 2017 tyf',
   logo: '/logo.png',
+  spirit: '/sprite_9604fcb1a445b05bee565a034a0dc452',
   iconFontCSS: '/iconfont.css',
   iconFontJS: '/iconfont.js',
   CORS: [],
   openPages: ['/login'],
-  apiPrefix: '/api',
+  apiPrefix: '/api/v1',
   APIV1,
   APIV2,
   api: {
