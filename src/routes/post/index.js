@@ -23,32 +23,40 @@ const Index = ({ post, dispatch, loading, location }) => {
     loading: loading.effects['post/query'],
     publish: true,
     onChange (page) {
+      const { query, pathname } = location
       dispatch(routerRedux.push({
         pathname,
         query: {
           ...query,
+          status: 2,
           page: page.current,
           pageSize: page.pageSize,
+          total:page.total
         },
       }))
     },
   }
+
   const unlistProps = {
     pagination,
     dataSource: list,
     loading: loading.effects['post/query'],
-    publish: false,
+    publish: true,
     onChange (page) {
+      const { query, pathname } = location
       dispatch(routerRedux.push({
         pathname,
         query: {
           ...query,
+          status: 1,
           page: page.current,
           pageSize: page.pageSize,
+          total:page.total
         },
       }))
     },
   }
+
   const handleTabClick = (key) => {
     dispatch(routerRedux.push({
       pathname,
@@ -59,12 +67,12 @@ const Index = ({ post, dispatch, loading, location }) => {
   }
   
   return (<div className="content-inner">
-    <Tabs activeKey={query.status === String(EnumPostStatus.UNPUBLISH) ? String(EnumPostStatus.UNPUBLISH) : String(EnumPostStatus.PUBLISHED)} onTabClick={handleTabClick}>
+    <Tabs defaultActiveKey={query.status === String(EnumPostStatus.UNPUBLISH) ? String(EnumPostStatus.UNPUBLISH) : String(EnumPostStatus.PUBLISHED)} onTabClick={handleTabClick}>
       <TabPane tab="Encapsulation" key={String(EnumPostStatus.PUBLISHED)}>
         <List {...listProps} />
       </TabPane>
       <TabPane tab="UnEncapsulation" key={String(EnumPostStatus.UNPUBLISH)}>
-        <List {...listProps} />
+        <List {...unlistProps} />
       </TabPane>
     </Tabs>
   </div>)
