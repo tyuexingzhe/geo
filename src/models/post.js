@@ -13,7 +13,7 @@ export default modelExtend(pageModel, {
         if (location.pathname === '/post') {
           let payload = {}
           if(!location.query){
-            payload = {status: 1,...queryString.parse(location.search), current: 1, pageSize: 10}
+            payload = {status: 2,...queryString.parse(location.search), current: 1, pageSize: 10}
           }else{
             payload = {status:Number(location.query.status) ,...queryString.parse(location.search),...location.query}
           }

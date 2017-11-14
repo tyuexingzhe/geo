@@ -15,6 +15,7 @@ module.exports = {
     for (let key in other) {
       if ({}.hasOwnProperty.call(other, key)) {
         newData = newData.filter((item) => {
+          console.log(item)
           if ({}.hasOwnProperty.call(item, key)) {
             return String(item[key]).trim().indexOf(decodeURI(other[key]).trim()) > -1
           }

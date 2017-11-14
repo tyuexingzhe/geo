@@ -21,7 +21,7 @@ module.exports = {
     users: `${APIV1}/users`,
     resource : `${APIV1}/resource/:id`,
     resources : `${APIV1}/resources`,
-    posts: `${APIV1}/posts`,
+    posts: `${APIV2}/posts`,
     mdl : `${APIV1}/mdl`,
     models: `${APIV1}/models`,
     user: `${APIV1}/user/:id`,

@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Form, Input, InputNumber, Radio, Modal, Cascader } from 'antd'
+import { Form, Input, InputNumber, Radio, Modal, Cascader, Select, Tag, Tooltip, Button  } from 'antd'
 import city from '../../utils/city'
+import linuxVersion from '../../utils/linuxVersion'
+import {EditableTagGroup} from 'components'
 
+const { Option, OptGroup } = Select;
 const FormItem = Form.Item
 
 const formItemLayout = {
@@ -43,6 +46,15 @@ const modal = ({
     onOk: handleOk,
   }
 
+  // Just show the latest item.
+  const displayRender = (label) => {
+    return label[label.length - 1];
+  }
+
+  const selectHandleChange =(value) => {
+    console.log(`selected ${value}`);
+  }
+
   return (
     <Modal {...modalOpts}>
       <Form layout="horizontal">
@@ -55,6 +67,43 @@ const modal = ({
               },
             ],
           })(<Input />)}
+        </FormItem>
+        <FormItem label="HardWare" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('hardware', {
+            initialValue: item.hardware,
+            rules: [
+              {
+                required: true,
+              },
+            ],
+          })(<Select
+              style={{ width: 200 }}
+              onChange={selectHandleChange}
+              >
+              <OptGroup label="Ubuntu">
+                <Option value="Ubuntu16.04">Ubuntu16.04</Option>
+                <Option value="Ubuntu14.04">Ubuntu14.04</Option>
+              </OptGroup>
+              <OptGroup label="CentOS">
+                <Option value="CentOS6">CentOS6</Option>
+                <Option value="CentOS7">CentOS7</Option>
+              </OptGroup>
+              <OptGroup label="Debian">
+                <Option value="Debian7">Debian7</Option>
+                <Option value="Debian8">Debian8</Option>
+                <Option value="Debian9">Debian9</Option>
+              </OptGroup>
+            </Select>)}
+        </FormItem>
+        <FormItem label="SoftWare" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('software', {
+            initialValue: ['python2.7','gcc','g++','python3.2'],
+            rules: [
+              {
+                required: true,
+              },
+            ],
+          })(<EditableTagGroup />)}
         </FormItem>
         <FormItem label="Use" hasFeedback {...formItemLayout}>
           {getFieldDecorator('isUsed', {

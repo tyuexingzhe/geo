@@ -5,7 +5,7 @@ const config = require('../utils/config')
 const { apiPrefix } = config
 
 let resourcesListData = Mock.mock({
-  'data|20': [
+  'data|15': [
     {
       id: '@id',
       name: '@name',
@@ -137,7 +137,8 @@ module.exports = {
   [`POST ${apiPrefix}/resource`] (req, res) {
     const newData = req.body
     newData.createTime = Mock.mock('@now')
-    newData.avatar = newData.avatar || Mock.Random.image('100x100', Mock.Random.color(), '#757575', 'png', newData.nickName.substr(0, 1))
+    console.log(newData)
+    newData.avatar = newData.avatar || Mock.Random.image('100x100', Mock.Random.color(), '#757575', 'png', newData.name.substr(0, 1))
     newData.id = Mock.mock('@id')
 
     database.unshift(newData)
