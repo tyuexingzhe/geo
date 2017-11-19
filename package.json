@@ -3,9 +3,12 @@
   "name": "antd-admin",
   "version": "4.3.6",
   "dependencies": {
+    "@opuscapita/react-filemanager": "0.0.1",
+    "@opuscapita/react-filemanager-connector-node-v1": "^1.0.0-beta.0",
     "antd": "^2.11.2",
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
+    "base64url": "^2.0.0",
     "classnames": "^2.2.5",
     "cross-env": "^5.0.5",
     "d3-shape": "^1.2.0",

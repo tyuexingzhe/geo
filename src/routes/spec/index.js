@@ -17,7 +17,11 @@ import {
 import {Iconfont} from 'components'
 import styles from './index.less'
 require('./index.css')
-
+import {FileManager,FileNavigator, HeaderCell, Notification, SetNameDialog} from '@opuscapita/react-filemanager'
+import connectors from '@opuscapita/react-filemanager-connector-node-v1'
+import id from '../../utils/id'
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const TabPane = Tabs.TabPane
 const {api} = config
@@ -33,7 +37,7 @@ const {
 } = api
 const TreeNode = Tree.TreeNode
 
-export default class Spec extends React.Component {
+class Spec extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -306,12 +310,29 @@ export default class Spec extends React.Component {
                     </Row>
                 </TabPane>
                 <TabPane tab="模型部署" key='4'>
-                    <div className={styles['m-no-doc']}>
-                        <div className={styles['u-icon-no-document']}></div>
-                        <div className={styles['no-doc-tip']}>暂无部署结构</div>
-                    </div>          
+                    <div style={{ height: '70vh', minWidth: '320px', flex: '1', marginBottom: '15px' }}>
+                        <FileManager>
+                        <FileNavigator
+                            id="cusomization-area"
+                            api={connectors.api}
+                            apiOptions={{
+                                apiRoot: `${'http://192.168.40.108:3020'}/api`
+                            }}
+                            capabilities={connectors.capabilities}
+                            initialResourceId={id.encode(`/`)}
+                            listViewLayout={connectors.listViewLayout}
+                            viewLayoutOptions={connectors.viewLayoutOptions}
+                            signInRenderer={() => (
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+                            </div>
+                            )}
+                        />
+                        </FileManager>
+                    </div>
                 </TabPane>
             </Tabs>
         )
     }
 }
+
+export default DragDropContext(HTML5Backend)(Spec);
