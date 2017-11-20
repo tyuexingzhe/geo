@@ -97,7 +97,7 @@ const modal = ({
         </FormItem>
         <FormItem label="SoftWare" hasFeedback {...formItemLayout}>
           {getFieldDecorator('software', {
-            initialValue: ['python2.7','gcc','g++','python3.2'],
+            initialValue: item.software.split(','),
             rules: [
               {
                 required: true,
