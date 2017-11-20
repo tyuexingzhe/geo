@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Card , Button, Input, Row, Col} from 'antd'
+import {Card , Button, Input, Row, Col, Form} from 'antd'
 import SortableTree, {toggleExpandedForAll,addNodeUnderParent,removeNodeAtPath} from 'react-sortable-tree'
 import styles from './index.less'
 const jstoxml = require('jstoxml');
@@ -17,368 +17,12 @@ class MdlTree extends React.Component {
             searchFocusIndex: 0,
             searchFoundCount: null,
             xml:'',
-            treemdl: {
-                title: 'ModelClass',
-                _name: 'ModelClass',
-                _attrs: {
-                    name: '????Name',
-                    uid: '{472F0F71-4DD6-4BE9-86CC-0C6B9BD809D1}',
-                    style: 'SimpleCalculation',
-                },
-                noDragging: true,
-                expanded: true,
-                _content: [{
-                        title: 'AttributeSet',
-                        _name:'AttributeSet',
-                        noDragging: true,
-                        _content: [{
-                                title: 'Categories',
-                                _name:'Categories',
-                                noDragging: true,
-                                _content: [{
-                                    title: 'Category',
-                                    _name : 'Category',
-                                    noDragging: true,
-                                    _attrs:{
-                                        principle: 'principle1',
-                                        path: 'path1',
-                                    },
-                                }]
-                            },
-                            {
-                                title: 'LocalAttributes',
-                                _name: 'LocalAttributes',
-                                noDragging: true,
-                                _content: [{
-                                    title: 'LocalAttribute',
-                                    _name: 'LocalAttribute',
-                                    _attrs:{
-                                        local: 'EN_US',
-                                        localName: 'name',
-                                        wiki: 'http://en.njnu.edu.cn',
-                                    },
-                                    noDragging: true,
-                                    _content: [{
-                                        title: 'Keywords',
-                                        _name: 'Keywords',
-                                        noDragging: true,
-                                        _content: 'keyword1; keyword2; keyword3',
-                                    }, {
-                                        title: 'Abstract',
-                                        _name: 'Abstract',
-                                        noDragging: true,
-                                        _content: 'abstract, this is about some abstract information',
-                                    }]
-                                }]
-                            }
-                        ],
-                    },
-                    {
-                        title: 'Behavior',
-                        _name: 'Behavior',
-                        noDragging: true,
-                        _content: [{
-                                title: 'RelatedDatasets',
-                                _name: 'RelatedDatasets',
-                                noDragging: true,
-                                _content: [{
-                                        title: 'DatasetItem',
-                                        _name: 'DatasetItem',
-                                        _attrs:{
-                                            name: 'data item1',
-                                            type: 'internal',
-                                            description: 'data item1 description',
-                                        },
-                                        _content: [{
-                                            title: 'UdxDeclaration',
-                                            _name: 'UdxDeclaration',
-                                            _attrs:{
-                                                name: 'UdxDeclaration',
-                                                description: '',
-                                            },
-                                            _content: [{
-                                                    title: 'UdxNode',
-                                                    _name: 'UdxNode',
-                                                    _content: [{
-                                                        title: 'UdxNode',
-                                                        _name: 'UdxNode',
-                                                        _attrs:{
-                                                            name: 'name1',
-                                                            type: 'DTKT_ANY',
-                                                            description: 'description1',
-                                                        },
-                                                        _content: [{
-                                                                title: 'UdxNode',
-                                                                _name: 'UdxNode',
-                                                                _attrs:{
-                                                                    name: 'name1_1',
-                                                                    type: 'DTKT_ANY',
-                                                                    description: 'description1_1',
-                                                                },
-                                                            },
-                                                            {
-                                                                title: 'UdxNode',
-                                                                _name: 'UdxNode',
-                                                                _attrs:{
-                                                                    name: 'name1_2',
-                                                                    type: 'DTKT_ANY',
-                                                                    description: 'description1_2',
-                                                                },
-                                                            }
-                                                        ]
-                                                    }]
-                                                },
-                                                {
-                                                    title: 'SemanticAttachment',
-                                                    _name: 'SemanticAttachment',
-                                                    _content: [{
-                                                            title: 'Concepts',
-                                                            _name: 'Concepts',
-                                                        },
-                                                        {
-                                                            title: 'SpatialRefs',
-                                                            _name: 'SpatialRefs',
-                                                        },
-                                                        {
-                                                            title: 'Units',
-                                                            _name: 'Units',
-                                                        },
-                                                        {
-                                                            title: 'DataTemplates',
-                                                            _name: 'DataTemplates',
-                                                        },
-                                                    ]
-                                                }
-                                            ]
-                                        }]
-                                    },
-                                    {
-                                        title: 'DatasetItem',
-                                        _name: 'DatasetItem',
-                                        _attrs: {
-                                            name: 'data item2',
-                                            type: 'internal',
-                                            description: 'data item2 description',
-                                        },
-                                        _content: [{
-                                            title: 'UdxDeclaration',
-                                            _name: 'UdxDeclaration',
-                                            _attrs: {
-                                                name: 'UdxDeclaration',
-                                                description: '',
-                                            },
-                                            _content: [{
-                                                    title: 'UdxNode',
-                                                    _name: 'UdxNode',
-                                                    _content: [{
-                                                            title: 'UdxNode',
-                                                            _name: 'UdxNode',
-                                                            _attrs: {
-                                                                name: 'name1',
-                                                                type: 'DTKT_ANY',
-                                                                description: 'description1_1',
-                                                            },
-                                                        },
-                                                        {
-                                                            title: 'UdxNode',
-                                                            _name: 'UdxNode',
-                                                            _attrs: {
-                                                                name: 'name2',
-                                                                type: 'DTKT_REAL',
-                                                                description: 'description1_2',
-                                                            },
-                                                        },
-                                                        {
-                                                            title: 'UdxNode',
-                                                            _name: 'UdxNode',
-                                                            _attrs: {
-                                                                name: 'name3',
-                                                                type: 'DTKT_STRING',
-                                                                description: 'description1_3',
-                                                            },
-                                                        },
-                                                        {
-                                                            title: 'UdxNode',
-                                                            _name: 'UdxNode',
-                                                            _attrs: {
-                                                                name: 'name4',
-                                                                type: 'DTKT_VECTOR2D',
-                                                                description: 'description1_4',
-                                                            },
-                                                        },
-                                                    ]
-                                                },
-                                                {
-                                                    title: 'SemanticAttachment',
-                                                    _name: 'SemanticAttachment',
-                                                    _content: [{
-                                                            title: 'Concepts',
-                                                            _name: 'Concepts',
-                                                        },
-                                                        {
-                                                            title: 'SpatialRefs',
-                                                            _name: 'SpatialRefs',
-                                                        },
-                                                        {
-                                                            title: 'Units',
-                                                            _name: 'Units',
-                                                        },
-                                                        {
-                                                            title: 'DataTemplates',
-                                                            _name: 'DataTemplates',
-                                                        },
-                                                    ]
-                                                }
-                                            ]
-                                        }]
-                                    }
-                                ]
-                            },
-                            {
-                                title: 'StateGroup',
-                                _name: 'StateGroup',
-                                noDragging: true,
-                                _content: [{
-                                        title: 'States',
-                                        _name: 'States',
-                                        noDragging: true,
-                                        _content: [{
-                                                title: 'State',
-                                                _name: 'State',
-                                                _attrs: {
-                                                    id: '{EC9FD8A7-CD8B-4715-9489-907AD1B34E9D}',
-                                                    name: 'State_1',
-                                                    type: 'basic',
-                                                    description: '????',
-                                                },
-                                                _content: [{
-                                                    title: 'Event',
-                                                    _name: 'State',
-                                                    _attrs:{
-                                                        name: '??Event',
-                                                        type: 'response',
-                                                        optional: '0',
-                                                        description: '????',
-                                                    },
-                                                    _content: [{
-                                                        title: 'ResponseParameter',
-                                                        _name: 'ResponseParameter',
-                                                        _attrs:{
-                                                            datasetReference: 'data item1',
-                                                            description: '????'
-                                                        },
-                                                    }]
-                                                }]
-                                            },
-                                            {
-                                                title: 'State',
-                                                _name: 'State',
-                                                _attrs:{
-                                                    id: '{EC9FD8A7-CD8B-4715-9489-907AD1B34E9D}',
-                                                    name: 'State_2',
-                                                    type: 'basic',
-                                                    description: '????',
-                                                },
-                                                _content: [{
-                                                    title: 'Event',
-                                                    _name: 'Event',
-                                                    _attrs:{
-                                                        name: '??Event',
-                                                        type: 'response',
-                                                        optional: '0',
-                                                        description: '????',
-                                                    },
-                                                    _content: [{
-                                                        title: 'ResponseParameter',
-                                                        _name: 'ResponseParameter',
-                                                        _attrs:{
-                                                            datasetReference: 'data item1',
-                                                            description: '????'
-                                                        }
-                                                    }]
-                                                }]
-                                            },
-                                        ]
-                                    },
-                                    {
-                                        title: 'StateTransitions',
-                                        _name: 'StateTransitions',
-                                        noDragging: true,
-                                        _content: [{
-                                            title: 'Add',
-                                            _name: 'Add',
-                                            _attrs:{
-                                                from: '{EC9FD8A7-CD8B-4715-9489-907AD1B34E9D}',
-                                                to: '{F1D3B6D9-BCB1-4439-9A4A-57876B25D66D}'
-                                            }
-                                        }]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Runtime',
-                        _name: 'Runtime',
-                        noDragging: true,
-                        _content: [{
-                            title: 'HardwareConfigures',
-                            _name: 'HardwareConfigures',
-                            noDragging: true,
-                            _content: [{
-                                title: 'Add',
-                                _name: 'Add',
-                                _attrs:{
-                                    key: '?',
-                                    value: '2.4',
-                                }
-                            }, ]
-                        }, {
-                            title: 'SoftwareConfigures',
-                            _name: 'SoftwareConfigures',
-                            noDragging: true,
-                            _content: [{
-                                title: 'Add',
-                                _name: 'Add',
-                                _attrs:{
-                                    key: '?',
-                                    value: '120M',
-                                }
-                            }, ]
-                        }, {
-                            title: 'Assemblies',
-                            _name: 'Assemblies',
-                            noDragging: true,
-                            _content: [{
-                                title: 'Add',
-                                _name: 'Add',
-                                _attrs:{
-                                    name: 'dll',
-                                    path: './mpi.dll',
-                                }
-                            }, ]
-                        }, {
-                            title: 'SupportiveResources',
-                            _name: 'SupportiveResources',
-                            noDragging: true,
-                            _content: [{
-                                title: 'Add',
-                                _name: 'Add',
-                                _attrs:{
-                                    type: 'data',
-                                    name: 'dsf.csv',
-                                }
-                            }, ]
-                        }]
-                    },
-                ]
-            },
             treeData: [
                 {
                     title: 'ModelClass',
                     _name: 'ModelClass',
                     _attrs: {
-                        name: '????Name',
+                        name: 'Model Name',
                         uid: '{472F0F71-4DD6-4BE9-86CC-0C6B9BD809D1}',
                         style: 'SimpleCalculation',
                     },
@@ -606,23 +250,23 @@ class MdlTree extends React.Component {
                                                         id: '{EC9FD8A7-CD8B-4715-9489-907AD1B34E9D}',
                                                         name: 'State_1',
                                                         type: 'basic',
-                                                        description: '????',
+                                                        description: '状态描述',
                                                     },
                                                     children: [{
                                                         title: 'Event',
                                                         _name: 'State',
                                                         _attrs: {
-                                                            name: '??Event',
+                                                            name: '事件Event',
                                                             type: 'response',
                                                             optional: '0',
-                                                            description: '????',
+                                                            description: '事件描述',
                                                         },
                                                         children: [{
                                                             title: 'ResponseParameter',
                                                             _name: 'ResponseParameter',
                                                             _attrs: {
                                                                 datasetReference: 'data item1',
-                                                                description: '????'
+                                                                description: '参数描述'
                                                             },
                                                         }]
                                                     }]
@@ -634,23 +278,23 @@ class MdlTree extends React.Component {
                                                         id: '{EC9FD8A7-CD8B-4715-9489-907AD1B34E9D}',
                                                         name: 'State_2',
                                                         type: 'basic',
-                                                        description: '????',
+                                                        description: '状态描述',
                                                     },
                                                     children: [{
                                                         title: 'Event',
                                                         _name: 'Event',
                                                         _attrs: {
-                                                            name: '??Event',
+                                                            name: '事件Event',
                                                             type: 'response',
                                                             optional: '0',
-                                                            description: '????',
+                                                            description: '事件描述',
                                                         },
                                                         children: [{
                                                             title: 'ResponseParameter',
                                                             _name: 'ResponseParameter',
                                                             _attrs: {
                                                                 datasetReference: 'data item1',
-                                                                description: '????'
+                                                                description: '参数描述'
                                                             }
                                                         }]
                                                     }]
@@ -803,15 +447,80 @@ class MdlTree extends React.Component {
                 : 0
         });
 
+        const parseXML = (text)=> {
+            //去掉多余的空格
+            text = '\n' + text.replace(/(<\w+)(\s.*?>)/g, function ($0, name, props) {
+                        return name + ' ' + props.replace(/\s+(\w+=)/g, " $1");
+                    }).replace(/>\s*?</g, ">\n<");
+
+            //把注释编码
+            text = text.replace(/\n/g, '\r').replace(/<!--(.+?)-->/g, function ($0, text) {
+                var ret = '<!--' + escape(text) + '-->';
+                //alert(ret);
+                return ret;
+            }).replace(/\r/g, '\n');
+
+            //调整格式
+            var rgx = /\n(<(([^\?]).+?)(?:\s|\s*?>|\s*?(\/)>)(?:.*?(?:(?:(\/)>)|(?:<(\/)\2>)))?)/mg;
+            var nodeStack = [];
+            var output = text.replace(rgx, function ($0, all, name, isBegin, isCloseFull1, isCloseFull2, isFull1, isFull2) {
+                var isClosed = (isCloseFull1 == '/') || (isCloseFull2 == '/' ) || (isFull1 == '/') || (isFull2 == '/');
+                //alert([all,isClosed].join('='));
+                var prefix = '';
+                if (isBegin == '!') {
+                    prefix = getPrefix(nodeStack.length);
+                }
+                else {
+                    if (isBegin != '/') {
+                        prefix = getPrefix(nodeStack.length);
+                        if (!isClosed) {
+                            nodeStack.push(name);
+                        }
+                    }
+                    else {
+                        nodeStack.pop();
+                        prefix = getPrefix(nodeStack.length);
+                    }
+
+                }
+                var ret = '\n' + prefix + all;
+                return ret;
+            });
+
+            var prefixSpace = -1;
+            var outputText = output.substring(1);
+            //alert(outputText);
+
+            //把注释还原并解码，调格式
+            outputText = outputText.replace(/\n/g, '\r').replace(/(\s*)<!--(.+?)-->/g, function ($0, prefix, text) {
+                //alert(['[',prefix,']=',prefix.length].join(''));
+                if (prefix.charAt(0) == '\r')
+                    prefix = prefix.substring(1);
+                text = unescape(text).replace(/\r/g, '\n');
+                var ret = '\n' + prefix + '<!--' + text.replace(/^\s*/mg, prefix) + '-->';
+                //alert(ret);
+                return ret;
+            });
+            console.log(outputText)
+            return outputText.replace(/\s+$/g, '').replace(/\r/g, '\r\n');
+        }
+
+        const getPrefix = (prefixIndex) => {
+            var span = '    ';
+            var output = [];
+            for (var i = 0; i < prefixIndex; ++i) {
+                output.push(span);
+            }
+
+            return output.join('');
+        }
+
         const createMdl = () => {
             const newtree = childRepalceContent(treeData[0])
             this.setState({
                 xml : jstoxml.toXML(newtree)
             })
-            console.log(this.state.xml)
-            //this.myTextarea.value = this.state.xml
-            //console.log(this.state.xml)
-            //console.log(treeData[0])
+            console.log(parseXML(this.state.xml))
         }
 
         const childRepalceContent = (treeMdl) => {
@@ -832,16 +541,16 @@ class MdlTree extends React.Component {
                         childRepalceContent(o)
                         delete treeMdl[key]
                     }
-                    //delete treeMdl[key]
                 }
 
             }
             return newtree
         }
 
-        const handleXml = ()=>{
-            console.log(123)
+        const parseMdl = () => {
+
         }
+
         const isVirtualized = true;
         const treeContainerStyle = isVirtualized
             ? {
@@ -994,10 +703,11 @@ class MdlTree extends React.Component {
                 </Col>
                 <Col {...colProps}>
                     <Card title="Xml" style={{ overflow: 'visible' }}>
-                        <Button type="primary"  onClick={createMdl}>Download Mdl</Button>
+                        <Button type="primary"  onClick={parseMdl}>Parse Mdl</Button>
+                        <Form></Form>
                         <br /><br />
                         {/* <textarea style={textareaStyle} defaultValue="Waiting for Create MDL" ref={(textarea)=>{this.myTextarea = textarea}}/> */}
-                        <textarea style={textareaStyle} value={xml} onChange={(e) => this.setState({ xml: e.target.value }) }/>
+                        <textarea style={textareaStyle} value={parseXML(xml)} onChange={(e) => this.setState({ xml: e.target.value }) }/>
                     </Card>
                 </Col>
             </Row>
