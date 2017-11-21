@@ -97,7 +97,7 @@ const modal = ({
         </FormItem>
         <FormItem label="SoftWare" hasFeedback {...formItemLayout}>
           {getFieldDecorator('software', {
-            initialValue: item.software.split(','),
+            initialValue:  item.software && item.software.split(','),
             rules: [
               {
                 required: true,
@@ -120,6 +120,26 @@ const modal = ({
               <Radio value={false}>False</Radio>
             </Radio.Group>
           )}
+        </FormItem>
+        <FormItem label="IP" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('ip', {
+            initialValue: item.ip,
+            rules: [
+              {
+                required: true,
+              },
+            ],
+          })(<Input />)}
+        </FormItem>
+        <FormItem label="Port" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('port', {
+            initialValue: item.port,
+            rules: [
+              {
+                required: true,
+              },
+            ],
+          })(<Input />)}
         </FormItem>
         <FormItem label="Phone" hasFeedback {...formItemLayout}>
           {getFieldDecorator('phone', {

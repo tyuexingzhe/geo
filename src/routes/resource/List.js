@@ -47,6 +47,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: 'SoftWare',
       dataIndex: 'software',
       key: 'software',
+      className: styles.software,
       render: (text, record) => <Link to={`resource/${record.id}`}>{text}</Link>,
     }, {
       title: 'Used',
@@ -56,6 +57,14 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
         ? 'Use'
         : 'unUse'}</span>),
     }, {
+      title: 'IP',
+      dataIndex: 'ip',
+      key: 'ip',
+    },{
+      title: 'Port',
+      dataIndex: 'port',
+      key: 'port',
+    },{
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
