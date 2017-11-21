@@ -9,17 +9,19 @@ export default class EditableTagGroup extends React.Component {
       inputVisible: false,
       inputValue: '',
     };  
+    this.handleClose = this.handleClose.bind(this)
+    this.handleInputConfirm = this.handleInputConfirm.bind(this)
   }
 
-  handleClose = (removedTag) => {
+  async handleClose(removedTag) {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     // console.log(tags);
     // if (!('value' in this.props)) {
     //   this.setState({ tags: tags });
     // }
-    this.setState({ tags });
+    await this.setState({ tags:tags })
+
     this.triggerChange({ tags });
-    // this.setState({ tags });
   }
 
   showInput = () => {
@@ -38,14 +40,14 @@ export default class EditableTagGroup extends React.Component {
     this.setState({ inputValue: e.target.value });
   }
 
-  handleInputConfirm = () => {
+  async handleInputConfirm (){
     const state = this.state;
     const inputValue = state.inputValue;
     let tags = state.tags;
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
-    this.setState({
+    await this.setState({
       tags,
       inputVisible: false,
       inputValue: '',
@@ -80,10 +82,10 @@ export default class EditableTagGroup extends React.Component {
     return (
       <div>
         {tags.map((tag, index) => {
-          const isLongTag = tag.length > 20;
+          const isLongTag = tag.length > 5;
           const tagElem = (
             <Tag key={tag} closable={index !== -1} afterClose={() => this.handleClose(tag)}>
-              {isLongTag ? `${tag.slice(0, 20)}...` : tag}
+              {isLongTag ? `${tag.slice(0, 5)}...` : tag}
             </Tag>
           );
           return isLongTag ? <Tooltip title={tag} key={tag}>{tagElem}</Tooltip> : tagElem;
