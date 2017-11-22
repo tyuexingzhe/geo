@@ -75,9 +75,13 @@ const Routers = function ({ history, app }) {
       models: () => [import('./models/model')],
       component: () => import('./routes/model/'),
     }, {
-      path: '/mdl',
-      // models: () => [import('./models/mdltree')],
-      component: () => import('./routes/MdlTree/MdlTree'),
+      path: '/mdltree',
+      models: () => [import('./models/mdltree')],
+      component: () => import('./routes/mdlTree'),
+    }, {
+      path: '/mdltree/:id',
+      models: () => [import('./models/mdltree')],
+      component: () => import('./routes/mdlTree'),
     },{
       path: '/spec',
       // models: () => [import('./models/mdltree')],

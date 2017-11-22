@@ -187,7 +187,14 @@ let database = [
     bpid: '1',
     name: 'CreateMdl',
     icon: 'inbox',
-    route: '/mdl',
+    route: '/mdltree',
+  },
+  {
+    id: '71',
+    bpid: '7',
+    mpid: '-1',
+    name: 'Mdl Detail',
+    route: '/mdltree/:id',
   },
 ]
 
