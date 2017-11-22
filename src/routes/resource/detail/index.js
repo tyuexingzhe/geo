@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import styles from './index.less'
-
+import {Button} from 'antd'
+import {Link} from 'react-router-dom'
 const Detail = ({ resourceDetail }) => {
   const { data } = resourceDetail
   const content = []
@@ -18,6 +19,7 @@ const Detail = ({ resourceDetail }) => {
     <div className={styles.content}>
       {content}
     </div>
+    <Button className={styles.button} type='primary'><Link to={`/mdltree/${data.id}`} >Create Model</Link></Button>
   </div>)
 }
 
